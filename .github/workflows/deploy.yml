@@ -42,7 +42,7 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: cheqr/pessoas-ci:${{ github.sha }}
+          tags: iquenavarro/pessoas-ci:${{ github.sha }}
 
       - name: executing remote ssh commands using password
         uses: appleboy/ssh-action@master
@@ -54,4 +54,4 @@ jobs:
           script: |
             docker stop pessoas
             docker rm --force pessoas
-            docker run -d -p 8080:8080 --name pessoas --network=rede cheqr/pessoas-ci:${{ github.sha }}
+            docker run -d -p 8080:8080 --name pessoas --network=rede iquenavarro/pessoas-ci:${{ github.sha }}
